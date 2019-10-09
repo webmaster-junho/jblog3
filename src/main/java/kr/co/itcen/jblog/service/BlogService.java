@@ -73,5 +73,9 @@ public class BlogService {
 		filename += (".") + extName;
 		return filename;
 	}
+	public List<CategoryVo> getCategoryList(String id) {
+		
+		return categoryDao.getCategoryList(id);
+	}
 
 }

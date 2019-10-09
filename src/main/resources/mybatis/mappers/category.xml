@@ -20,4 +20,16 @@
 			where blog_id = #{id}
 		]]>
 	</select>
+	<select id="list" resultType="categoryvo" parameterType="String">
+		<![CDATA[
+			select 	count(post.no) as count, 
+					category.name as name,
+					category.explanation as explanation,
+					category.no as no 
+			from category left join post 
+				on category.no = post.category_no
+			where category.blog_id = #{blog_id}
+			group by category.no;
+		]]>
+	</select>
 </mapper>

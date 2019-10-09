@@ -25,4 +25,9 @@ public class CategoryDao {
 		return list;
 	}
 
+	public List<CategoryVo> getCategoryList(String id) {
+		List<CategoryVo> list = sqlSession.selectList("category.list",id);
+		return list;
+	}
+
 }

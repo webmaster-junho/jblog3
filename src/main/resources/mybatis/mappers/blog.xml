@@ -7,7 +7,7 @@
 		<![CDATA[
 			insert 
 			into blog 
-			values(#{id},concat(#{id},'님의 블러그입니다'),'/images/spring-logo')
+			values(#{id},concat(#{id},'님의 블러그입니다'),'/assets/images/spring-logo.jpg')
 		]]>
 	</insert>
 	<select id="get" parameterType="String" resultType="blogvo">

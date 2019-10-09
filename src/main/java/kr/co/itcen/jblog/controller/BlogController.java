@@ -19,7 +19,7 @@ import kr.co.itcen.jblog.vo.CategoryVo;
 import kr.co.itcen.jblog.vo.PostVo;
 import kr.co.itcen.jblog.vo.UserVo;
 
-@RequestMapping("/{id:(?!assets).*}")//assets밑에 있는 파일제외 모두 받는다
+@RequestMapping("/blog/{id:(?!assets).*}")//assets밑에 있는 파일제외 모두 받는다
 @Controller
 public class BlogController {
 	@Autowired
@@ -70,6 +70,12 @@ public class BlogController {
 			@PathVariable String id,
 			BlogVo vo) {
 		blogService.update(multipartFile,vo);
-		return "redirect:/"+id;
+		return "redirect:/blog/"+id;
+	}
+	@RequestMapping("/admin/category")
+	public String category(@PathVariable String id,Model model) {
+		List<CategoryVo> list= blogService.getCategoryList(id);
+		model.addAttribute("list",list);
+		return "blog/blog-admin-category";
 	}
 }
